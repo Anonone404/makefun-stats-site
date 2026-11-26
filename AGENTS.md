@@ -65,6 +65,10 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
   toggles `.nav-open` on the header; the nav is hidden by default on
   mobile and opens as a full-width dropdown under the header.
   `app.js` `initMenu()` wires toggle, link-click close and Escape close.
+- Floating back-to-top 2026-11-26 (follow-up fix session): the footer
+  "Back to top" link is replaced by a single floating pill button
+  (`.to-top`, teal, "↑ Back to top"), fixed bottom-right with a clear
+  offset from the edges (24px desktop, 16px mobile). CSS only, no JS.
 - Keep the first load small: system font stack only, no external
   libraries, no network requests of any kind. Split source into files
   with one clear job each, named for what they do.
