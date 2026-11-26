@@ -1,19 +1,19 @@
 // Figures for NusaData — Indonesia in Numbers.
 // Every figure carries its source and year. Sources: BPS (Statistics
 // Indonesia), World Bank WDI, United Nations World Population Prospects.
-// Figures are the latest published values as of November 2026.
+// The entry is a 2024 dataset: figures are published values for the years shown.
 
 export const META = {
   country: 'Indonesia',
   updated: 'November 2026',
-  note: 'Figures are the latest published values at the time of writing. Each figure names its source and year.',
+  note: 'Figures are published values for the years shown. Each figure names its source and year.',
 };
 
 export const HEADLINE = [
   { label: 'Population', value: '283.5M', sub: '4th largest in the world', source: 'World Bank, 2024' },
   { label: 'GDP', value: '$1.40T', sub: '$4,925 per person', source: 'World Bank, 2024' },
   { label: 'GDP growth', value: '5.03%', sub: 'year on year', source: 'BPS, 2024' },
-  { label: 'Poverty rate', value: '8.57%', sub: 'down from 9.03% in 2023', source: 'BPS, Sep 2024' },
+  { label: 'Poverty rate', value: '8.57%', sub: 'down from 9.03% in Mar 2024', source: 'BPS, Sep 2024' },
 ];
 
 export const AT_A_GLANCE = [
@@ -29,9 +29,9 @@ export const AT_A_GLANCE = [
 
 // Population, millions, World Bank WDI
 export const POPULATION_YEARS = [
-  { year: '2020', value: 274.0 },
-  { year: '2021', value: 276.4 },
-  { year: '2022', value: 279.0 },
+  { year: '2020', value: 274.8 },
+  { year: '2021', value: 276.8 },
+  { year: '2022', value: 278.8 },
   { year: '2023', value: 281.2 },
   { year: '2024', value: 283.5 },
 ];
@@ -119,7 +119,7 @@ export const POVERTY = [
   { year: '2020', value: 10.19 },
   { year: '2021', value: 9.71 },
   { year: '2022', value: 9.57 },
-  { year: '2023', value: 9.03 },
+  { year: '2023', value: 9.36 },
   { year: '2024', value: 8.57 },
 ];
 
