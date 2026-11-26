@@ -86,7 +86,7 @@ export const TRADE_2024 = [
   { label: 'Exports', value: '$264.70B', source: 'BPS, 2024' },
   { label: 'Imports', value: '$233.66B', source: 'BPS, 2024' },
   { label: 'Trade surplus', value: '$31.04B', source: 'BPS, 2024' },
-  { label: 'Foreign investment', value: '$24.2B', source: 'World Bank, 2024' },
+  { label: 'Foreign investment', value: '$24.3B', source: 'World Bank, 2024' },
 ];
 
 // Consumer price inflation, December year on year, percent, BPS
