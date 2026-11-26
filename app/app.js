@@ -9,6 +9,8 @@ import {
   GDP_GROWTH,
   GDP_SECTORS,
   TRADE_2024,
+  ASEAN_GDP_PER_CAPITA,
+  ASEAN_MEMBERS,
   INFLATION,
   UNEMPLOYMENT,
   LABOUR_FACTS,
@@ -82,6 +84,22 @@ function drawEconomy() {
 function renderTrade() {
   $('trade-grid').innerHTML = TRADE_2024.map((t) => (
     `<div class="glance"><p class="glance-value">${t.value}</p><p class="glance-label">${t.label}</p><p class="source">${t.source}</p></div>`
+  )).join('');
+}
+
+// --- ASEAN comparison section ---
+function drawCompare() {
+  const fmtUSD = (v) => '$' + v.toLocaleString('en-US');
+  drawHorizontalBarChart(
+    $('compare-chart'),
+    ASEAN_GDP_PER_CAPITA.map((c) => ({ label: c.name, value: c.value })),
+    { formatValue: fmtUSD, highlight: ASEAN_GDP_PER_CAPITA.findIndex((c) => c.name === 'Indonesia') },
+  );
+}
+
+function renderAseanTable() {
+  $('asean-body').innerHTML = ASEAN_MEMBERS.map((m) => (
+    `<tr${m.name === 'Indonesia' ? ' class="hl"' : ''}><td>${m.name}</td><td class="num">${m.pop.toFixed(1)}</td><td class="num">$${m.gdpPerCapita.toLocaleString('en-US')}</td></tr>`
   )).join('');
 }
 
@@ -206,6 +224,7 @@ function initControls() {
   window.addEventListener('resize', () => {
     drawPopulation();
     drawEconomy();
+    drawCompare();
     drawPricesJobs();
     drawWelfare();
   });
@@ -217,6 +236,8 @@ renderAge();
 drawPopulation();
 renderTrade();
 drawEconomy();
+drawCompare();
+renderAseanTable();
 drawPricesJobs();
 drawWelfare();
 renderProvinces();

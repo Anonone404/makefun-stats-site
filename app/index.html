@@ -16,7 +16,8 @@
       <a href="#overview">Overview</a>
       <a href="#population">Population</a>
       <a href="#economy">Economy</a>
-      <a href="#prices-jobs">Prices &amp; Jobs</a>
+      <a href="#compare">Compare</a>
+      <a href="#prices-jobs">Prices</a>
       <a href="#welfare">Welfare</a>
       <a href="#provinces">Provinces</a>
       <a href="#sources">Sources</a>
@@ -41,6 +42,7 @@
   <section id="population" class="panel">
     <h2>Population</h2>
     <p class="section-intro">283.5 million people in 2024 — the fourth largest country in the world, and still growing by about 0.8% a year.</p>
+    <p class="insight">About 1 in 29 people on Earth lives in Indonesia. <span class="source">World population 8.14 billion — World Bank, 2024</span></p>
     <div class="chart-head">
       <div class="toggle" role="group" aria-label="Population chart view">
         <button type="button" data-pop-mode="years" class="on">By year</button>
@@ -75,6 +77,29 @@
     <p id="eco-chart-caption" class="caption"></p>
     <h3>Trade, 2024</h3>
     <div id="trade-grid" class="glance-grid"></div>
+  </section>
+
+  <section id="compare" class="panel">
+    <h2>How Indonesia compares</h2>
+    <p class="section-intro">Indonesia is the biggest country in Southeast Asia — by people and by economy. Here it is next to its nine ASEAN neighbours.</p>
+    <p class="insight">Indonesia has the largest population and the largest economy in Southeast Asia, but only the 5th-highest GDP per person. <span class="source">World Bank, 2024</span></p>
+    <h3>GDP per person, 2024</h3>
+    <canvas id="compare-chart" height="300" aria-label="GDP per capita chart"></canvas>
+    <p class="caption">GDP per capita, US dollars — World Bank, 2024. The six largest ASEAN economies by GDP per person; Indonesia highlighted.</p>
+    <h3>All ten ASEAN members, 2024</h3>
+    <div class="table-scroll">
+      <table id="asean-table">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th class="num">Population (M)</th>
+            <th class="num">GDP per person (USD)</th>
+          </tr>
+        </thead>
+        <tbody id="asean-body"></tbody>
+      </table>
+    </div>
+    <p class="caption">Population and GDP per capita — World Bank, 2024. Populations rounded to one decimal.</p>
   </section>
 
   <section id="prices-jobs" class="panel">

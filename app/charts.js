@@ -60,6 +60,8 @@ export function drawHorizontalBarChart(canvas, series, options = {}) {
   const max = Math.max(...values) * 1.15;
   const padL = 150, padR = 56, padT = 8;
   const plotW = width - padL - padR;
+  // Value labels: percent by default; callers may pass their own format.
+  const formatValue = options.formatValue || ((v) => String(v) + '%');
   ctx.font = '12px system-ui, -apple-system, sans-serif';
   series.forEach((point, i) => {
     const y = padT + rowH * i + rowH / 2;
@@ -68,11 +70,14 @@ export function drawHorizontalBarChart(canvas, series, options = {}) {
     ctx.textAlign = 'right';
     ctx.textBaseline = 'middle';
     ctx.fillText(point.label, padL - 8, y);
-    ctx.fillStyle = i === 0 ? TEAL : SLATE;
+    // Highlight one row in teal when requested; otherwise the first row.
+    ctx.fillStyle = options.highlight !== undefined
+      ? (i === options.highlight ? TEAL : SLATE)
+      : (i === 0 ? TEAL : SLATE);
     ctx.fillRect(padL, y - 11, Math.max(barW, 2), 22);
     ctx.fillStyle = INK;
     ctx.textAlign = 'left';
-    ctx.fillText(point.label === undefined ? '' : String(point.value) + '%', padL + barW + 6, y);
+    ctx.fillText(formatValue(point.value), padL + barW + 6, y);
   });
 }
 

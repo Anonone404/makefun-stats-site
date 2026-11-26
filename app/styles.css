@@ -36,7 +36,7 @@ body {
 .top-inner {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   min-height: 56px;
   flex-wrap: wrap;
   padding-top: 8px;
@@ -69,7 +69,7 @@ body {
   color: #d6e8e6;
   text-decoration: none;
   font-size: 14px;
-  padding: 6px 10px;
+  padding: 6px 8px;
   border-radius: 8px;
 }
 .nav a:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
@@ -146,6 +146,18 @@ h1 {
 .panel h2 { margin: 0 0 6px; font-size: 26px; letter-spacing: -0.02em; }
 .panel h3 { margin: 20px 0 10px; font-size: 17px; }
 .section-intro { margin: 0 0 16px; color: var(--muted); max-width: 680px; }
+
+/* Insight callout: one striking line, amber left border on a warm wash. */
+.insight {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-left: 4px solid var(--amber);
+  background: #fffbeb;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  max-width: 680px;
+}
+.insight .source { font-size: 12px; }
 .note { font-size: 13px; color: var(--muted); margin: 14px 0 0; }
 .caption { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
 
@@ -231,6 +243,8 @@ th[data-sort]:hover { color: var(--teal); }
 td.num, th.num { text-align: right; }
 td.num { font-variant-numeric: tabular-nums; }
 tbody tr:hover { background: #f8fafc; }
+tr.hl td { background: #f0fdfa; }
+tr.hl td:first-child { font-weight: 700; color: var(--teal-dark); }
 td.empty { text-align: center; color: var(--muted); padding: 20px; }
 
 /* Sources */

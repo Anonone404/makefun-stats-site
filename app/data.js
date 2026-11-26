@@ -89,6 +89,36 @@ export const TRADE_2024 = [
   { label: 'Foreign investment', value: '$24.3B', source: 'World Bank, 2024' },
 ];
 
+// ASEAN comparison, 2024, World Bank WDI.
+// GDP per capita, USD — the six largest ASEAN economies by this measure.
+export const ASEAN_GDP_PER_CAPITA = [
+  { name: 'Singapore', value: 94897 },
+  { name: 'Brunei Darussalam', value: 33154 },
+  { name: 'Malaysia', value: 11874 },
+  { name: 'Thailand', value: 7387 },
+  { name: 'Indonesia', value: 4925 },
+  { name: 'Vietnam', value: 4717 },
+];
+
+// All ten ASEAN members, 2024, World Bank WDI.
+// Population in millions, rounded to one decimal; GDP per capita in USD.
+export const ASEAN_MEMBERS = [
+  { name: 'Indonesia', pop: 283.5, gdpPerCapita: 4925 },
+  { name: 'Philippines', pop: 115.8, gdpPerCapita: 3985 },
+  { name: 'Vietnam', pop: 101.0, gdpPerCapita: 4717 },
+  { name: 'Thailand', pop: 71.7, gdpPerCapita: 7387 },
+  { name: 'Myanmar', pop: 54.5, gdpPerCapita: 1359 },
+  { name: 'Malaysia', pop: 35.6, gdpPerCapita: 11874 },
+  { name: 'Cambodia', pop: 17.6, gdpPerCapita: 2628 },
+  { name: 'Lao PDR', pop: 7.8, gdpPerCapita: 2124 },
+  { name: 'Singapore', pop: 6.0, gdpPerCapita: 94897 },
+  { name: 'Brunei Darussalam', pop: 0.5, gdpPerCapita: 33154 },
+];
+
+// Human scale: world population 2024, World Bank WDI — 8,140,897,523.
+// Indonesia's 283,487,931 people are about 1 in 29 of everyone on Earth.
+export const WORLD_POPULATION_2024 = 8140897523;
+
 // Consumer price inflation, December year on year, percent, BPS
 export const INFLATION = [
   { year: '2020', value: 1.68 },
