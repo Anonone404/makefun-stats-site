@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NusaData — Indonesia in Numbers</title>
+<meta name="description" content="Indonesia's key national statistics in one place: population, economy, prices, jobs, welfare and provinces, each figure with its source and year.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="#overview"><span class="brand-mark">N</span><span class="brand-name">NusaData</span><span class="brand-tag">Indonesia in Numbers</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#overview">Overview</a>
+      <a href="#population">Population</a>
+      <a href="#economy">Economy</a>
+      <a href="#prices-jobs">Prices &amp; Jobs</a>
+      <a href="#welfare">Welfare</a>
+      <a href="#provinces">Provinces</a>
+      <a href="#sources">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="overview" class="hero">
+    <p class="kicker">National statistics · Indonesia</p>
+    <h1>Indonesia in numbers</h1>
+    <p class="lede">The figures people actually look up — population, the economy, prices, jobs and welfare — in one place, each with its source and year. No account, no tracking, everything on this page.</p>
+    <div id="headline-cards" class="cards"></div>
+    <p id="updated-note" class="note"></p>
+  </section>
+
+  <section class="panel" aria-label="At a glance">
+    <h2>At a glance</h2>
+    <div id="glance-grid" class="glance-grid"></div>
+  </section>
+
+  <section id="population" class="panel">
+    <h2>Population</h2>
+    <p class="section-intro">283.5 million people in 2024 — the fourth largest country in the world, and still growing by about 0.8% a year.</p>
+    <div class="chart-head">
+      <div class="toggle" role="group" aria-label="Population chart view">
+        <button type="button" data-pop-mode="years" class="on">By year</button>
+        <button type="button" data-pop-mode="provinces">Largest provinces</button>
+      </div>
+    </div>
+    <canvas id="pop-chart" height="260" aria-label="Population chart"></canvas>
+    <p id="pop-chart-caption" class="caption"></p>
+    <div class="split">
+      <div>
+        <h3>Age structure</h3>
+        <div id="age-bars"></div>
+        <p class="caption">Share of population by age group — World Bank, 2024</p>
+      </div>
+      <div>
+        <h3>Key facts</h3>
+        <div id="pop-facts" class="facts"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="economy" class="panel">
+    <h2>Economy</h2>
+    <p class="section-intro">A $1.40 trillion economy in 2024 — the 16th largest in the world — growing 5.03% after 5.05% in 2023.</p>
+    <div class="chart-head">
+      <div class="toggle" role="group" aria-label="Economy chart view">
+        <button type="button" data-eco-mode="growth" class="on">Growth 2020–2024</button>
+        <button type="button" data-eco-mode="sectors">What makes the GDP</button>
+      </div>
+    </div>
+    <canvas id="eco-chart" height="260" aria-label="Economy chart"></canvas>
+    <p id="eco-chart-caption" class="caption"></p>
+    <h3>Trade, 2024</h3>
+    <div id="trade-grid" class="glance-grid"></div>
+  </section>
+
+  <section id="prices-jobs" class="panel">
+    <h2>Prices &amp; jobs</h2>
+    <p class="section-intro">Inflation cooled to 1.57% in December 2024, and unemployment fell to 4.91% in August 2024 — the lowest in the five-year series.</p>
+    <div class="split">
+      <div>
+        <h3>Inflation</h3>
+        <canvas id="inflation-chart" height="240" aria-label="Inflation chart"></canvas>
+        <p class="caption">Consumer prices, December year on year — BPS, 2020–2024</p>
+      </div>
+      <div>
+        <h3>Unemployment</h3>
+        <canvas id="unemployment-chart" height="240" aria-label="Unemployment chart"></canvas>
+        <p class="caption">Open unemployment rate, August — BPS Sakernas, 2020–2024</p>
+      </div>
+    </div>
+    <h3>Labour market</h3>
+    <div id="labour-facts" class="facts"></div>
+  </section>
+
+  <section id="welfare" class="panel">
+    <h2>Welfare</h2>
+    <p class="section-intro">Poverty has fallen every year since 2020, to 8.57% in September 2024 — and 8.47% by March 2025. Life expectancy keeps rising with it.</p>
+    <canvas id="poverty-chart" height="260" aria-label="Poverty chart"></canvas>
+    <p class="caption">Poverty rate, September, percent of population — BPS, 2020–2024</p>
+    <div id="welfare-cards" class="cards"></div>
+  </section>
+
+  <section id="provinces" class="panel">
+    <h2>Provinces</h2>
+    <p class="section-intro">Three provinces on Java hold over 40% of the country. Search the table, or tap a column heading to sort it.</p>
+    <div class="table-tools">
+      <label for="province-search">Search provinces</label>
+      <input id="province-search" type="search" placeholder="Type a province or capital, e.g. Medan" autocomplete="off">
+    </div>
+    <div class="table-scroll">
+      <table id="province-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th data-sort="name" data-label="Province">Province</th>
+            <th data-sort="capital" data-label="Capital">Capital</th>
+            <th data-sort="pop" data-label="Population (M)">Population (M)</th>
+            <th data-sort="share" data-label="Share">Share</th>
+          </tr>
+        </thead>
+        <tbody id="province-body"></tbody>
+      </table>
+    </div>
+    <p id="province-count" class="caption"></p>
+  </section>
+
+  <section id="sources" class="panel">
+    <h2>Sources &amp; method</h2>
+    <p class="section-intro">Every figure on this page names its source and year. The numbers below are the latest published values as of November 2026.</p>
+    <ul id="source-list" class="sources"></ul>
+    <p id="method-note" class="note"></p>
+    <p class="note">NusaData is an independent reference site. It is not affiliated with BPS, the World Bank or the United Nations; their names appear only as cited sources.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <p><strong>NusaData</strong> — Indonesia in Numbers. Built as a static site; it works offline from its own files.</p>
+    <a href="#overview">Back to top</a>
+  </div>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
