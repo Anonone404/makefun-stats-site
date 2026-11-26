@@ -257,20 +257,23 @@ td.empty { text-align: center; color: var(--muted); padding: 20px; }
 }
 .foot p { margin: 0; font-size: 14px; }
 
-/* Floating back-to-top button: fixed to the viewport, bottom-right
-   with a clear offset from the edges so it never sits in the corner. */
+/* Floating back-to-top button: a circular arrow-only button, fixed to
+   the viewport bottom-right with a clear offset from the edges. */
 .to-top {
   position: fixed;
   right: 24px;
   bottom: 24px;
   z-index: 20;
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   background: var(--teal);
   color: #fff;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 22px;
+  line-height: 1;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
 }
