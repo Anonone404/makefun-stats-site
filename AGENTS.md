@@ -60,6 +60,11 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
   media query only, the header is a single row (`.top-inner` no wrap) and
   the nav is one horizontally scrollable row (no wrap, `overflow-x: auto`,
   hidden scrollbar, links `white-space: nowrap`) — no hamburger, CSS only.
+- Hamburger menu 2026-11-26 (follow-up fix session): replaces the
+  scrollable nav row. A three-line button (`.menu-btn`, hidden on desktop)
+  toggles `.nav-open` on the header; the nav is hidden by default on
+  mobile and opens as a full-width dropdown under the header.
+  `app.js` `initMenu()` wires toggle, link-click close and Escape close.
 - Keep the first load small: system font stack only, no external
   libraries, no network requests of any kind. Split source into files
   with one clear job each, named for what they do.
