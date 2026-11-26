@@ -56,6 +56,10 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
   274.8/276.8/278.8 (World Bank WDI current values); "latest published
   values" wording dropped — the entry is a 2024 dataset, figures are
   published values for the years shown.
+- Mobile nav fix 2026-11-26 (follow-up fix session): inside the 720px
+  media query only, the header is a single row (`.top-inner` no wrap) and
+  the nav is one horizontally scrollable row (no wrap, `overflow-x: auto`,
+  hidden scrollbar, links `white-space: nowrap`) — no hamburger, CSS only.
 - Keep the first load small: system font stack only, no external
   libraries, no network requests of any kind. Split source into files
   with one clear job each, named for what they do.
