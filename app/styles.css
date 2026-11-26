@@ -75,6 +75,30 @@ body {
 .nav a:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
 .nav a.active { background: rgba(255, 255, 255, 0.2); color: #fff; }
 
+/* Hamburger button: hidden on desktop, shown on mobile only. */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+.menu-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+}
+
 /* Hero */
 .hero { padding: 40px 0 8px; }
 .kicker {
@@ -243,18 +267,27 @@ td.empty { text-align: center; color: var(--muted); padding: 20px; }
   .split { grid-template-columns: 1fr; }
   .panel { padding: 18px; }
   .brand-tag { display: none; }
-  .top-inner { flex-wrap: nowrap; }
-  .nav {
-    flex: 1 1 auto;
-    min-width: 0;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
+  .top-inner { flex-wrap: nowrap; gap: 12px; }
+  .menu-btn { display: inline-flex; }
+  .menu-btn span { transition: transform 0.15s ease, opacity 0.15s ease; }
+  .nav { display: none; }
+  .top.nav-open .nav {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 2px;
     margin-left: 0;
-    gap: 0;
+    padding: 8px 20px 12px;
+    background: var(--teal-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav a { flex: 0 0 auto; white-space: nowrap; padding: 6px 7px; font-size: 13px; }
+  .top.nav-open .nav a { display: block; padding: 10px 12px; font-size: 15px; }
+  .top.nav-open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .top.nav-open .menu-btn span:nth-child(2) { opacity: 0; }
+  .top.nav-open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .stat-value { font-size: 24px; }
   .age-row { grid-template-columns: 92px 1fr 48px; }
 }

@@ -154,6 +154,27 @@ function initScrollSpy() {
   sections.forEach((s) => s && spy.observe(s));
 }
 
+// --- Mobile menu: hamburger toggle ---
+function initMenu() {
+  const header = document.querySelector('.top');
+  const btn = $('menu-btn');
+  if (!header || !btn) return;
+  const close = () => {
+    header.classList.remove('nav-open');
+    btn.setAttribute('aria-expanded', 'false');
+  };
+  btn.addEventListener('click', () => {
+    const open = header.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('#site-nav a').forEach((a) => {
+    a.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+}
+
 // --- Wire controls ---
 function initControls() {
   document.querySelectorAll('[data-pop-mode]').forEach((btn) => {
@@ -202,3 +223,4 @@ renderProvinces();
 renderSources();
 initControls();
 initScrollSpy();
+initMenu();
