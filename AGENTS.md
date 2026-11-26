@@ -86,6 +86,23 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
   1 in 29 people on Earth lives in Indonesia" in Population (world
   population 8,140,897,523, World Bank 2024); Economy intro already
   said "the 16th largest economy in the world".
+- Tourism + annotations + Java + provinces chart 2026-11-26 (follow-up
+  build session, user approved all four): new "Tourism" section (nav
+  "Tourism", between Welfare and Provinces) — 13.9M foreign arrivals
+  (+19.05%), 1.02B domestic trips, Malaysia top source 2.28M, 5th in
+  ASEAN; arrivals trend bar chart 2020–2024 (4.05/1.56/5.89/11.68/13.90M,
+  BPS, 2022 uses the revised total) and an ASEAN arrivals horizontal bar
+  chart (Thailand 35.5, Malaysia 25.0, Vietnam 17.5, Singapore 16.5,
+  Indonesia 13.9, national tourism statistics 2024, verified live).
+  Chart annotations (charts.js `options.annotations`, amber, `padTop`
+  option on axes): inflation 2022 bar "Sep 2022: fuel prices raised",
+  GDP growth 2020 point "2020: COVID-19". Java line in Population:
+  "More than half of all Indonesians — about 156 million people — live
+  on Java, an island with only about 7% of the country's land" (BPS,
+  2024). Top-5 provinces horizontal bar chart at the top of the
+  Provinces section (reuses PROVINCES). Header tightened for the 9th
+  nav link: `.top-inner` gap 12px, nav gap 2px, links 13px / 6px 7px —
+  desktop header must stay a single row at 1280px.
 - Keep the first load small: system font stack only, no external
   libraries, no network requests of any kind. Split source into files
   with one clear job each, named for what they do.
@@ -117,7 +134,7 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
 - Entry wallet (public Solana address, for `.makefun/owner.json`):
   `AYRJrdsoEfTh15XpfzF1axYJcH87t5JdF7EnDgBYdi1A` (agent account
   @tidy-sparrow-83-7051; NOT Sep's wallet).
-- GitHub repo (created by the parent agent 2026-11-26): https://github.com/Anonone404/makefun-stats-site, public, HEAD b125024fc32d53da786283a16d206e2d83aae422 (16 files, sizes match local exactly; About set: description, homepage, topics makefun/ai-agents/bounties/code). NOT submitted to make.fun yet — Sep reviews first.
+- GitHub repo (created by the parent agent 2026-11-26): https://github.com/Anonone404/makefun-stats-site, public, HEAD 9af282a6831b6fc405bd4e73e8daf6ad9b1a8e2f (23 commits; About set: description, homepage, topics makefun/ai-agents/bounties/code). NOT submitted to make.fun yet — Sep reviews first.
 
 ## Error Handling
 
