@@ -119,6 +119,34 @@ export const ASEAN_MEMBERS = [
 // Indonesia's 283,487,931 people are about 1 in 29 of everyone on Earth.
 export const WORLD_POPULATION_2024 = 8140897523;
 
+// Tourism, BPS 2024.
+// Foreign visitor arrivals, millions. 2022 uses the revised BPS total
+// (5.89 million; first published as 5.47 million).
+export const TOURISM_ARRIVALS = [
+  { year: '2020', value: 4.05, label: '4.05M' },
+  { year: '2021', value: 1.56, label: '1.56M' },
+  { year: '2022', value: 5.89, label: '5.89M' },
+  { year: '2023', value: 11.68, label: '11.68M' },
+  { year: '2024', value: 13.90, label: '13.90M' },
+];
+
+// Foreign visitor arrivals in Southeast Asia, millions, 2024.
+// National tourism statistics (UN Tourism World Tourism Barometer).
+export const TOURISM_ASEAN = [
+  { name: 'Thailand', value: 35.5 },
+  { name: 'Malaysia', value: 25.0 },
+  { name: 'Vietnam', value: 17.5 },
+  { name: 'Singapore', value: 16.5 },
+  { name: 'Indonesia', value: 13.9 },
+];
+
+export const TOURISM_FACTS = [
+  { label: 'Foreign arrivals', value: '13.9M', sub: 'up 19.05% on 2023', source: 'BPS, 2024' },
+  { label: 'Domestic trips', value: '1.02B', sub: 'up 21.61% on 2023', source: 'BPS, 2024' },
+  { label: 'Top source country', value: 'Malaysia', sub: '2.28M visitors, 16.4% of arrivals', source: 'BPS, 2024' },
+  { label: 'Rank in ASEAN', value: '5th', sub: 'behind Thailand, Malaysia, Vietnam, Singapore', source: 'National tourism statistics, 2024' },
+];
+
 // Consumer price inflation, December year on year, percent, BPS
 export const INFLATION = [
   { year: '2020', value: 1.68 },
@@ -161,10 +189,11 @@ export const WELFARE = [
 ];
 
 export const SOURCES = [
-  { name: 'BPS — Statistics Indonesia', what: 'Population estimates, GDP, inflation, unemployment, poverty, HDI, life expectancy, literacy, trade, Gini ratio.' },
+  { name: 'BPS — Statistics Indonesia', what: 'Population estimates, GDP, inflation, unemployment, poverty, HDI, life expectancy, literacy, trade, Gini ratio, tourism.' },
   { name: 'World Bank — World Development Indicators', what: 'Population, GDP and GDP per capita, urban share, fertility, youth unemployment, foreign investment.' },
+  { name: 'UN Tourism and national tourism statistics', what: 'Foreign visitor arrivals in Thailand, Malaysia, Vietnam and Singapore, 2024.' },
   { name: 'United Nations — World Population Prospects 2024', what: 'Population totals and median age.' },
   { name: 'Bank Indonesia', what: 'Currency (rupiah).' },
 ];
 
-export const METHOD_NOTE = 'Provincial populations are BPS 2024 mid-year estimates, rounded to one decimal. Sector shares are rounded and sum to 100%. Poverty and unemployment figures follow BPS survey dates (September and August). Where sources disagree slightly — for example the UN and BPS population totals — the site uses the World Bank figure and says so.';
+export const METHOD_NOTE = 'Provincial populations are BPS 2024 mid-year estimates, rounded to one decimal. Sector shares are rounded and sum to 100%. Poverty and unemployment figures follow BPS survey dates (September and August). Tourism arrivals for 2022 use the revised BPS total (5.89 million). Where sources disagree slightly — for example the UN and BPS population totals — the site uses the World Bank figure and says so.';

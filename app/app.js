@@ -11,6 +11,9 @@ import {
   TRADE_2024,
   ASEAN_GDP_PER_CAPITA,
   ASEAN_MEMBERS,
+  TOURISM_ARRIVALS,
+  TOURISM_ASEAN,
+  TOURISM_FACTS,
   INFLATION,
   UNEMPLOYMENT,
   LABOUR_FACTS,
@@ -72,7 +75,9 @@ let ecoMode = 'growth';
 function drawEconomy() {
   const canvas = $('eco-chart');
   if (ecoMode === 'growth') {
-    drawLineChart(canvas, GDP_GROWTH.map((p) => ({ year: p.year, value: p.value, label: p.value + '%' })));
+    drawLineChart(canvas, GDP_GROWTH.map((p) => ({ year: p.year, value: p.value, label: p.value + '%' })), {
+      annotations: [{ index: 0, lines: ['2020: COVID-19'] }],
+    });
   } else {
     drawHorizontalBarChart(canvas, GDP_SECTORS.map((s) => ({ label: s.label, value: s.value })));
   }
@@ -103,9 +108,26 @@ function renderAseanTable() {
   )).join('');
 }
 
+// --- Tourism section ---
+function drawTourism() {
+  drawBarChart($('tourism-chart'), TOURISM_ARRIVALS.map((p) => ({ year: p.year, value: p.value, label: p.label })));
+  const fmtM = (v) => String(v) + 'M';
+  drawHorizontalBarChart(
+    $('tourism-asean-chart'),
+    TOURISM_ASEAN.map((c) => ({ label: c.name, value: c.value })),
+    { formatValue: fmtM, highlight: TOURISM_ASEAN.findIndex((c) => c.name === 'Indonesia') },
+  );
+  $('tourism-facts').innerHTML = TOURISM_FACTS.map((t) => (
+    `<div class="glance"><p class="glance-value">${t.value}</p><p class="glance-label">${t.label}</p><p class="source">${t.sub} — ${t.source}</p></div>`
+  )).join('');
+}
+
 // --- Prices & jobs section ---
 function drawPricesJobs() {
-  drawBarChart($('inflation-chart'), INFLATION.map((p) => ({ year: p.year, value: p.value, label: p.value + '%' })));
+  drawBarChart($('inflation-chart'), INFLATION.map((p) => ({ year: p.year, value: p.value, label: p.value + '%' })), {
+    padTop: 48,
+    annotations: [{ index: 2, lines: ['Sep 2022:', 'fuel prices raised'] }],
+  });
   drawBarChart($('unemployment-chart'), UNEMPLOYMENT.map((p) => ({ year: p.year, value: p.value, label: p.value + '%' })));
   $('labour-facts').innerHTML = LABOUR_FACTS.map(factRow).join('');
 }
@@ -118,7 +140,15 @@ function drawWelfare() {
   )).join('');
 }
 
-// --- Provinces table ---
+// --- Provinces chart + table ---
+function drawProvincesChart() {
+  drawHorizontalBarChart(
+    $('province-chart'),
+    PROVINCES.slice(0, 5).map((p) => ({ label: p.name, value: p.pop })),
+    { formatValue: (v) => v.toFixed(1) + 'M', highlight: 0 },
+  );
+}
+
 let provSort = { key: 'pop', dir: -1 };
 let provQuery = '';
 
@@ -225,6 +255,8 @@ function initControls() {
     drawPopulation();
     drawEconomy();
     drawCompare();
+    drawTourism();
+    drawProvincesChart();
     drawPricesJobs();
     drawWelfare();
   });
@@ -238,8 +270,10 @@ renderTrade();
 drawEconomy();
 drawCompare();
 renderAseanTable();
+drawTourism();
 drawPricesJobs();
 drawWelfare();
+drawProvincesChart();
 renderProvinces();
 renderSources();
 initControls();

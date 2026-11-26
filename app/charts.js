@@ -19,8 +19,8 @@ function setup(canvas, height) {
   return { ctx, width, height };
 }
 
-function axes(ctx, width, height, min, max) {
-  const padL = 44, padR = 10, padT = 22, padB = 26;
+function axes(ctx, width, height, min, max, padTop = 22) {
+  const padL = 44, padR = 10, padT = padTop, padB = 26;
   const plotW = width - padL - padR;
   const plotH = height - padT - padB;
   ctx.strokeStyle = GRID;
@@ -81,6 +81,23 @@ export function drawHorizontalBarChart(canvas, series, options = {}) {
   });
 }
 
+// Annotations: options.annotations = [{ index, lines: ['...'] }].
+// Each annotation is drawn in amber above the annotated point or bar, one
+// line per entry, so a chart can name the event behind a spike or a dip.
+// Callers that annotate a tall bar should also pass options.padTop so the
+// lines have room above the plot.
+function drawAnnotations(ctx, items) {
+  ctx.fillStyle = AMBER;
+  ctx.font = '11px system-ui, -apple-system, sans-serif';
+  ctx.textBaseline = 'bottom';
+  items.forEach((a) => {
+    a.lines.forEach((line, j) => {
+      const y = a.y - 20 - (a.lines.length - 1 - j) * 14;
+      ctx.fillText(line, a.x, y);
+    });
+  });
+}
+
 export function drawBarChart(canvas, series, options = {}) {
   const height = options.height || 260;
   const { ctx, width } = setup(canvas, height);
@@ -91,7 +108,7 @@ export function drawBarChart(canvas, series, options = {}) {
   const pad = (max - min) * 0.08;
   min -= pad;
   max += pad;
-  const { padL, padT, plotW, plotH } = axes(ctx, width, height, min, max);
+  const { padL, padT, plotW, plotH } = axes(ctx, width, height, min, max, options.padTop);
   const n = series.length;
   const slot = plotW / n;
   const barW = Math.min(56, slot * 0.6);
@@ -111,6 +128,16 @@ export function drawBarChart(canvas, series, options = {}) {
     ctx.textBaseline = 'top';
     ctx.fillText(point.year ?? '', x, padT + plotH + 6);
   });
+  if (options.annotations) {
+    const notes = options.annotations.map((a) => {
+      const i = a.index;
+      const x = padL + slot * i + slot / 2;
+      const y1 = padT + plotH - ((series[i].value - min) / (max - min)) * plotH;
+      return { x, y: Math.min(padT + plotH - ((0 - min) / (max - min)) * plotH, y1), lines: a.lines };
+    });
+    ctx.textAlign = 'center';
+    drawAnnotations(ctx, notes);
+  }
 }
 
 export function drawLineChart(canvas, series, options = {}) {
@@ -123,7 +150,7 @@ export function drawLineChart(canvas, series, options = {}) {
   const pad = (max - min) * 0.15;
   min -= pad;
   max += pad;
-  const { padL, padT, plotW, plotH } = axes(ctx, width, height, min, max);
+  const { padL, padT, plotW, plotH } = axes(ctx, width, height, min, max, options.padTop);
   const n = series.length;
   const xAt = (i) => padL + (plotW * i) / (n - 1);
   const yAt = (v) => padT + plotH - ((v - min) / (max - min)) * plotH;
@@ -168,4 +195,17 @@ export function drawLineChart(canvas, series, options = {}) {
       ctx.fillText(point.year ?? '', xAt(i), padT + plotH + 6);
     }
   });
+  if (options.annotations) {
+    const notes = options.annotations.map((a) => {
+      const i = a.index;
+      // Anchor the text the same way the point label is anchored, so an
+      // annotation on an end point never runs off the plot edge.
+      const x = i === 0 ? xAt(i) + 7 : i === n - 1 ? xAt(i) - 7 : xAt(i);
+      return { x, y: yAt(series[i].value), lines: a.lines, align: i === 0 ? 'left' : i === n - 1 ? 'right' : 'center' };
+    });
+    notes.forEach((note) => {
+      ctx.textAlign = note.align;
+      drawAnnotations(ctx, [note]);
+    });
+  }
 }

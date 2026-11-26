@@ -19,6 +19,7 @@
       <a href="#compare">Compare</a>
       <a href="#prices-jobs">Prices</a>
       <a href="#welfare">Welfare</a>
+      <a href="#tourism">Tourism</a>
       <a href="#provinces">Provinces</a>
       <a href="#sources">Sources</a>
     </nav>
@@ -43,6 +44,7 @@
     <h2>Population</h2>
     <p class="section-intro">283.5 million people in 2024 — the fourth largest country in the world, and still growing by about 0.8% a year.</p>
     <p class="insight">About 1 in 29 people on Earth lives in Indonesia. <span class="source">World population 8.14 billion — World Bank, 2024</span></p>
+    <p class="insight">More than half of all Indonesians — about 156 million people — live on Java, an island with only about 7% of the country's land. <span class="source">BPS, 2024</span></p>
     <div class="chart-head">
       <div class="toggle" role="group" aria-label="Population chart view">
         <button type="button" data-pop-mode="years" class="on">By year</button>
@@ -130,9 +132,24 @@
     <div id="welfare-cards" class="cards"></div>
   </section>
 
+  <section id="tourism" class="panel">
+    <h2>Tourism</h2>
+    <p class="section-intro">Tourism is back: 13.9 million foreign visitors in 2024, up 19.05% on 2023 — but Indonesia still ranks only 5th in Southeast Asia for arrivals.</p>
+    <div id="tourism-facts" class="glance-grid"></div>
+    <h3>Foreign arrivals, 2020–2024</h3>
+    <canvas id="tourism-chart" height="260" aria-label="Foreign arrivals chart"></canvas>
+    <p class="caption">Foreign visitor arrivals, millions — BPS, 2020–2024. 2022 uses the revised BPS total.</p>
+    <h3>Foreign arrivals in Southeast Asia, 2024</h3>
+    <canvas id="tourism-asean-chart" height="260" aria-label="ASEAN arrivals chart"></canvas>
+    <p class="caption">Foreign visitor arrivals, millions — national tourism statistics, 2024. Indonesia highlighted.</p>
+  </section>
+
   <section id="provinces" class="panel">
     <h2>Provinces</h2>
     <p class="section-intro">Three provinces on Java hold over 40% of the country. Search the table, or tap a column heading to sort it.</p>
+    <h3>Largest provinces, 2024</h3>
+    <canvas id="province-chart" height="260" aria-label="Largest provinces chart"></canvas>
+    <p class="caption">Largest provinces by population, millions — BPS, 2024 estimates</p>
     <div class="table-tools">
       <label for="province-search">Search provinces</label>
       <input id="province-search" type="search" placeholder="Type a province or capital, e.g. Medan" autocomplete="off">
