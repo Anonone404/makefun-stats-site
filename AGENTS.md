@@ -71,6 +71,9 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
   desktop, 16px mobile). Arrow-only since the second fix: a 48x48px
   circle showing just "↑" (aria-label "Back to top"), no visible text.
   CSS only, no JS.
+- Rounding fix 2026-11-26 (follow-up fix session): TRADE_2024 "Foreign
+  investment" corrected from $24.2B to $24.3B (World Bank WDI
+  BX.KLT.DINV.CD.WD 2024 = 24,275,445,280 USD).
 - Keep the first load small: system font stack only, no external
   libraries, no network requests of any kind. Split source into files
   with one clear job each, named for what they do.
