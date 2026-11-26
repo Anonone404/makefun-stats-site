@@ -74,6 +74,18 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
 - Rounding fix 2026-11-26 (follow-up fix session): TRADE_2024 "Foreign
   investment" corrected from $24.2B to $24.3B (World Bank WDI
   BX.KLT.DINV.CD.WD 2024 = 24,275,445,280 USD).
+- ASEAN comparison 2026-11-26 (follow-up build session): new "How
+  Indonesia compares" section (nav "Compare", between Economy and
+  Prices & jobs) — horizontal bar chart of GDP per capita for the six
+  largest ASEAN economies by that measure (Indonesia highlighted, chart
+  uses `formatValue` + `highlight` options in charts.js) plus a table
+  of all ten members with population and GDP per capita (Indonesia row
+  highlighted). All figures World Bank WDI 2024, verified live by the
+  parent. Insight line: largest population and economy in Southeast
+  Asia, but only 5th-highest GDP per person. Human-scale lines: "About
+  1 in 29 people on Earth lives in Indonesia" in Population (world
+  population 8,140,897,523, World Bank 2024); Economy intro already
+  said "the 16th largest economy in the world".
 - Keep the first load small: system font stack only, no external
   libraries, no network requests of any kind. Split source into files
   with one clear job each, named for what they do.
