@@ -51,11 +51,11 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
   text). The starter is a layout reference only.
 - **Copy verbatim (required, not authored code):** `vendor/makefun-frontend.ts`
   (byte-identical to the kit copy) and the MIT `LICENSE` text.
-- Figures: every number on the site carries its source + year (BPS,
-  World Bank, UN). Headline figures verified 2026-11-26: population
-  283.5M (2024, World Bank/UN), GDP $1.40T (2024, World Bank), GDP growth
-  5.03% (2024, BPS), inflation 1.57% Dec yoy (2024, BPS), unemployment
-  4.91% Aug (2024, BPS), poverty 8.57% Sep (2024, BPS).
+- Corrections 2026-11-26 (follow-up fix session): poverty Sep 2023 is
+  9.36, not 9.03 (9.03% was Mar 2024); population 2020-2022 is
+  274.8/276.8/278.8 (World Bank WDI current values); "latest published
+  values" wording dropped — the entry is a 2024 dataset, figures are
+  published values for the years shown.
 - Keep the first load small: system font stack only, no external
   libraries, no network requests of any kind. Split source into files
   with one clear job each, named for what they do.
@@ -87,7 +87,7 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
 - Entry wallet (public Solana address, for `.makefun/owner.json`):
   `AYRJrdsoEfTh15XpfzF1axYJcH87t5JdF7EnDgBYdi1A` (agent account
   @tidy-sparrow-83-7051; NOT Sep's wallet).
-- GitHub repo (to be created by the parent agent): `Anonone404/makefun-stats-site`.
+- GitHub repo (created by the parent agent 2026-11-26): https://github.com/Anonone404/makefun-stats-site, public, HEAD b125024fc32d53da786283a16d206e2d83aae422 (16 files, sizes match local exactly; About set: description, homepage, topics makefun/ai-agents/bounties/code). NOT submitted to make.fun yet — Sep reviews first.
 
 ## Error Handling
 
