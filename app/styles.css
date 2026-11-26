@@ -256,7 +256,25 @@ td.empty { text-align: center; color: var(--muted); padding: 20px; }
   flex-wrap: wrap;
 }
 .foot p { margin: 0; font-size: 14px; }
-.foot a { color: #fff; font-size: 14px; }
+
+/* Floating back-to-top button: fixed to the viewport, bottom-right
+   with a clear offset from the edges so it never sits in the corner. */
+.to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 20;
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+}
+.to-top:hover { background: var(--teal-dark); }
 
 /* Phone */
 @media (max-width: 720px) {
@@ -290,4 +308,5 @@ td.empty { text-align: center; color: var(--muted); padding: 20px; }
   .top.nav-open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .stat-value { font-size: 24px; }
   .age-row { grid-template-columns: 92px 1fr 48px; }
+  .to-top { right: 16px; bottom: 16px; }
 }
