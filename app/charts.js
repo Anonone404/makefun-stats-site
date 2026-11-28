@@ -1,11 +1,11 @@
 // Own canvas charts for NusaData. No library: two small draw functions,
 // bar and line, with crisp rendering on high-density screens.
 
-const INK = '#1e293b';
-const MUTED = '#64748b';
-const GRID = '#e2e8f0';
-const TEAL = '#0f766e';
-const AMBER = '#b45309';
+const INK = '#14213d';
+const MUTED = '#5b6b7f';
+const GRID = '#d9dee7';
+const NAVY = '#0f2a4a';
+const AMBER = '#d97706';
 const SLATE = '#475569';
 
 function setup(canvas, height) {
@@ -49,7 +49,7 @@ function formatTick(v) {
 
 function barColor(i, count, highlight) {
   if (highlight !== undefined && i === highlight) return AMBER;
-  return i === count - 1 ? TEAL : SLATE;
+  return i === count - 1 ? NAVY : SLATE;
 }
 
 export function drawHorizontalBarChart(canvas, series, options = {}) {
@@ -70,10 +70,10 @@ export function drawHorizontalBarChart(canvas, series, options = {}) {
     ctx.textAlign = 'right';
     ctx.textBaseline = 'middle';
     ctx.fillText(point.label, padL - 8, y);
-    // Highlight one row in teal when requested; otherwise the first row.
+    // Highlight one row in navy when requested; otherwise the first row.
     ctx.fillStyle = options.highlight !== undefined
-      ? (i === options.highlight ? TEAL : SLATE)
-      : (i === 0 ? TEAL : SLATE);
+      ? (i === options.highlight ? NAVY : SLATE)
+      : (i === 0 ? NAVY : SLATE);
     ctx.fillRect(padL, y - 11, Math.max(barW, 2), 22);
     ctx.fillStyle = INK;
     ctx.textAlign = 'left';
@@ -154,7 +154,7 @@ export function drawLineChart(canvas, series, options = {}) {
   const n = series.length;
   const xAt = (i) => padL + (plotW * i) / (n - 1);
   const yAt = (v) => padT + plotH - ((v - min) / (max - min)) * plotH;
-  ctx.strokeStyle = TEAL;
+  ctx.strokeStyle = NAVY;
   ctx.lineWidth = 2.5;
   ctx.beginPath();
   series.forEach((point, i) => {
@@ -164,7 +164,7 @@ export function drawLineChart(canvas, series, options = {}) {
   ctx.stroke();
   ctx.textAlign = 'center';
   series.forEach((point, i) => {
-    ctx.fillStyle = TEAL;
+    ctx.fillStyle = AMBER;
     ctx.beginPath();
     ctx.arc(xAt(i), yAt(point.value), 4, 0, Math.PI * 2);
     ctx.fill();
