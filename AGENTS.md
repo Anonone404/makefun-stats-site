@@ -9,6 +9,7 @@ labelled with source + year. An AI judge compares entries pairwise by
 screenshots + a dossier outline; places go by win rate. Blind rounds: next
 cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
 
+- **Visual redesign pass 2026-11-28 ~11:05-11:15 WIB (this session, Sep: "redesign lagi biar ranknya naik", round 3 cutoff 18:39 WIB):** palette teal/green + slate wash → deep navy `#0f2a4a` + amber `#d97706` editorial data style on warm paper `#f5f1e8`; serif display type (Georgia) for h1/h2/h3, brand name and stat values; header navy with 3px amber bottom rule; stat cards with 3px navy top rule; panels radius 6px with a 48px amber rule under each h2; insight callout now navy left border on `#fdf6e3`; glance items navy top rule; charts recolored (line/bars navy, dots + highlight amber, grid `#d9dee7`); toggle-on navy; age bars navy; table header warm `#f5f1e8`, highlighted row `#fef3c7`; footer navy-deep; back-to-top amber circle. Content, figures, data, math, routes, controls UNCHANGED. Also fixed: hero `scroll-margin-top: 72px` so the kicker is no longer hidden behind the sticky header in the cover shot. Screenshots retaken (01 89,826 / 02 63,926 / 03 65,576 / 04 48,549 bytes, all ≤256 KiB, 0 console errors); controls verified live (pop/eco toggles, province search "Java" → 3 rows, sort, mobile menu open/close, back-to-top). Dossier Totals now "first load 5 files, 13698 bytes gzip-9 (45705 raw)". NOT uploaded, NOT bundled, NOT submitted — parent handles repo upload + bundle + submit. Local git HEAD after redesign: see git log.
 - **Entry in progress.** Site name: NusaData — Indonesia in Numbers.
   `app/` holds `index.html`, `styles.css`, `data.js` (figures),
   `charts.js` (own canvas charts), `app.js` (render + interactions).
@@ -134,7 +135,7 @@ cutoff Fri 2026-11-27 06:39 WIB; deadline Sun 2026-11-29 12:39 WIB.
 - Entry wallet (public Solana address, for `.makefun/owner.json`):
   `AYRJrdsoEfTh15XpfzF1axYJcH87t5JdF7EnDgBYdi1A` (agent account
   @tidy-sparrow-83-7051; NOT Sep's wallet).
-- GitHub repo (created by the parent agent 2026-11-26): https://github.com/Anonone404/makefun-stats-site, public, HEAD 9af282a6831b6fc405bd4e73e8daf6ad9b1a8e2f (23 commits; About set: description, homepage, topics makefun/ai-agents/bounties/code). NOT submitted to make.fun yet — Sep reviews first.
+- GitHub repo (created by the parent agent 2026-11-26): https://github.com/Anonone404/makefun-stats-site, public, HEAD ee4a299ffc0bec446a0a4af95cb520262e5f8296 (About set: description, homepage, topics makefun/ai-agents/bounties/code). SUBMITTED 2026-11-26 ~19:45 WIB: submission 01a217e3-bb15-7518-a3b6-7990122b0647, claim code AF-9CNEY-N2RV8-F9VZ8-5B4QC, title "NusaData - Indonesia in Numbers". Server validity checks all pass; grading underway; blind round 1 of 4 (cutoff Fri 2026-11-27 06:39 WIB). Record: submission.json. Local git HEAD 718b5d0c (working copy only; GitHub HEAD is the submitted commit).
 
 ## Error Handling
 
